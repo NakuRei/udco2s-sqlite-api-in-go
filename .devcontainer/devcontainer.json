@@ -1,0 +1,17 @@
+{
+  "name": "udco2s-sqlite-api-in-go",
+  "dockerComposeFile": [
+    "../compose.yaml",
+    "compose.yaml"
+  ],
+  "overrideCommand": true,
+  "service": "api",
+  "workspaceFolder": "/workspaces",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.Go"
+      ]
+    }
+  }
+}

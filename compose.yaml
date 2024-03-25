@@ -1,0 +1,46 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: ./docker/Dockerfile
+    container_name: udco2s-sqlite-api-in-go-api
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+    ports:
+      - "8080:8080"
+    volumes:
+      - db-volume:/home/user/workspace/db
+    environment:
+      DB_PATH: "./db/udco2s_data.db"
+      TABLE_NAME: "sensor_data"
+      PORT: "8080"
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./udco2s-to-sqlite-py
+      dockerfile: ./docker/Dockerfile
+      args:
+        ENV: prod
+    container_name: udco2s-sqlite-api-in-go-db
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+    volumes:
+      - db-volume:/home/user/workspace/db
+    environment:
+      DEVICE_PORT: "/dev/ttyACM0"
+      DB_PATH: "./db/udco2s_data.db"
+      TABLE_NAME: "sensor_data"
+      INTERVAL_SEC: "10"
+
+volumes:
+  db-volume:

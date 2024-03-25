@@ -1,0 +1,9 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+    container_name: udco2s-sqlite-api-in-go-dev
+    command: sleep infinity
+    volumes:
+      - .:/workspaces
