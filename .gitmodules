@@ -1,0 +1,3 @@
+[submodule "udco2s-to-sqlite-py"]
+	path = udco2s-to-sqlite-py
+	url = git@github.com:NakuRei/udco2s-to-sqlite-py.git
