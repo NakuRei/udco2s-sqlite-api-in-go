@@ -6,4 +6,4 @@ services:
     container_name: udco2s-sqlite-api-in-go-dev
     command: sleep infinity
     volumes:
-      - .:/workspaces
+      - .:/home/user/workspace

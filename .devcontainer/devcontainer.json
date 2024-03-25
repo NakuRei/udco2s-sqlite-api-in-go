@@ -6,7 +6,7 @@
   ],
   "overrideCommand": true,
   "service": "api",
-  "workspaceFolder": "/workspaces",
+  "workspaceFolder": "/home/user/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
